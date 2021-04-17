@@ -5,7 +5,10 @@ using System.Threading.Tasks;
 
 namespace HelloAngularApp.Models
 {
-    public class Posts
+    public class Post
     {
+        public int Id { get; set; }
+        public string title { get; set; }
+        public string text { get; set; }
     }
 }
