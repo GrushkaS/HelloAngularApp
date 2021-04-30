@@ -1,4 +1,6 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { HttpResponse } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { Http2ServerRequest } from 'http2';
 import { DataService } from './data.service';
 import { Post } from './post';
 
@@ -27,7 +29,10 @@ export class AppComponent implements OnInit {
     save() {
         if (this.post.id == null) {
             this.dataService.createPost(this.post)
-                .subscribe((data: Post) => this.posts.push(data));
+                .subscribe((data: HttpResponse<Post>) => {
+                    console.log(data);
+                    this.posts.push(data.body)
+                });
         } else {
             this.dataService.updatePost(this.post)
                 .subscribe(data => this.loadPosts());

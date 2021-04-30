@@ -25,7 +25,10 @@ let AppComponent = class AppComponent {
     save() {
         if (this.post.id == null) {
             this.dataService.createPost(this.post)
-                .subscribe((data) => this.posts.push(data));
+                .subscribe((data) => {
+                console.log(data);
+                this.posts.push(data.body);
+            });
         }
         else {
             this.dataService.updatePost(this.post)

@@ -19,7 +19,7 @@ export class DataService {
     }
 
     createPost(post: Post) {
-        return this.http.post(this.url, post);
+        return this.http.post(this.url, post, { observe: 'response' });
     }
     updatePost(post: Post) {
 

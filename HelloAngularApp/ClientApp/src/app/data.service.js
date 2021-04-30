@@ -17,7 +17,7 @@ let DataService = class DataService {
         return this.http.get(this.url + '/' + id);
     }
     createPost(post) {
-        return this.http.post(this.url, post);
+        return this.http.post(this.url, post, { observe: 'response' });
     }
     updatePost(post) {
         return this.http.put(this.url, post);
