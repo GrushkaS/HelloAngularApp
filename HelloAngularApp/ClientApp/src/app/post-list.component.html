@@ -1,0 +1,22 @@
+﻿<div>
+    <a routerLink="/create" class="nav-link">Add</a>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Title</td>
+            <td>Text</td>           
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of posts">
+            <td>{{p?.title}}</td>
+            <td>{{p?.text}}</td>            
+            <td>
+                <a [routerLink]="['edit', p.id]" class="btn btn-sm btn-primary">Edit</a>
+                <button (click)="delete(p.id)" class="btn btn-sm btn-danger">Remoe</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
